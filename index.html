@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bono Banreservas</title>
   <style>
     body {
@@ -12,40 +12,33 @@
       padding: 0;
       color: #1a237e;
     }
-
     header {
       background-color: #0d47a1;
       color: white;
       text-align: center;
       padding: 40px 20px;
     }
-
     header h1 {
       margin: 0;
       font-size: 32px;
     }
-
     .container {
       max-width: 800px;
-      margin: auto;
+      margin: 30px auto;
       padding: 20px;
       background-color: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 10px;
-      margin-top: 30px;
     }
-
     .bonus-message {
       font-size: 18px;
       margin-bottom: 20px;
       line-height: 1.5;
     }
-
     .bonus-message span {
       font-weight: bold;
       color: green;
     }
-
     .impuesto {
       background-color: #fff3cd;
       padding: 15px;
@@ -53,9 +46,8 @@
       margin-bottom: 20px;
       border-radius: 6px;
     }
-
     .btn {
-      display: block;
+      display: inline-block;
       width: 100%;
       background-color: #1976d2;
       color: white;
@@ -68,14 +60,12 @@
       text-decoration: none;
       margin-top: 20px;
     }
-
     h2 {
       text-align: center;
       margin-top: 40px;
       font-size: 22px;
       color: #0d47a1;
     }
-
     .list {
       max-height: 300px;
       overflow-y: scroll;
@@ -85,10 +75,32 @@
       font-size: 14px;
       background: #f9f9f9;
     }
-
     .item {
       padding: 5px 0;
       border-bottom: 1px solid #eee;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+    }
+    #mensajeGenerado {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e3f2fd;
+      border-radius: 5px;
+      display: none;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+      white-space: pre-wrap;
     }
   </style>
 </head>
@@ -114,15 +126,39 @@
       ⚠️ <strong>Importante:</strong> Para procesar el bono, cada beneficiario debe pagar un <strong>impuesto único de RD$500</strong> a la <strong>Aduana de la República Dominicana</strong>.
     </div>
 
-    <a href="https://wa.me/18290000000" class="btn" target="_blank">Reclamar mi Bono por WhatsApp</a>
+    <a href="https://chat.whatsapp.com/CRtthkQVPPnCiUhML56rYk" target="_blank" class="btn">
+      Unirse al Grupo Oficial de WhatsApp
+    </a>
+
+    <div style="margin-top: 30px;">
+      <h2>Enviar mensaje automático al grupo</h2>
+      <form id="formMensaje" onsubmit="generarMensaje(event)">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+
+        <label for="identidad">Número de identidad:</label>
+        <input type="text" id="identidad" name="identidad" placeholder="Ejemplo: 001-1234567-8" required />
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad donde resides" required />
+
+        <button type="submit" class="btn" style="width:auto; margin-top:10px;">Generar mensaje</button>
+      </form>
+
+      <div id="mensajeGenerado">
+        <strong>Mensaje para copiar y pegar en el grupo:</strong>
+        <p id="mensajeTexto"></p>
+      </div>
+    </div>
 
     <h2>Clientes que ya han recibido su bono:</h2>
     <div class="list" id="lista-clientes">
-      <!-- Se generarán los nombres con JavaScript -->
+      <!-- Los nombres se generan con JavaScript -->
     </div>
   </div>
 
   <script>
+    // Generar lista de clientes
     const nombres = ['Luis', 'María', 'Carlos', 'Ana', 'José', 'Laura', 'Pedro', 'Lucía', 'Juan', 'Carmen', 'Santiago', 'Elena', 'Miguel', 'Daniela', 'Ramón', 'Jessica', 'Andrés', 'Patricia', 'Raúl', 'Verónica'];
     const apellidos = ['Gómez', 'Pérez', 'Rodríguez', 'López', 'Fernández', 'Santos', 'Cruz', 'Morales', 'Martínez', 'Jiménez'];
     const ciudades = ['Santo Domingo', 'Santiago', 'San Cristóbal', 'La Vega', 'Puerto Plata', 'San Pedro', 'Bonao', 'Higüey', 'Moca', 'Barahona'];
@@ -137,6 +173,20 @@
       div.className = 'item';
       div.textContent = `${nombre} ${apellido} - ${ciudad}`;
       lista.appendChild(div);
+    }
+
+    // Generar mensaje para pegar en WhatsApp
+    function generarMensaje(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const identidad = document.getElementById('identidad').value.trim();
+      const ciudad = document.getElementById('ciudad').value.trim();
+
+      if(nombre && identidad && ciudad) {
+        const mensaje = `BONO DOMINICANO ${nombre} ${identidad} ${ciudad}`;
+        document.getElementById('mensajeTexto').textContent = mensaje;
+        document.getElementById('mensajeGenerado').style.display = 'block';
+      }
     }
   </script>
 
