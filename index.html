@@ -79,29 +79,6 @@
       padding: 5px 0;
       border-bottom: 1px solid #eee;
     }
-    form label {
-      font-weight: bold;
-    }
-    form input {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-family: "Times New Roman", serif;
-      font-size: 16px;
-    }
-    #mensajeGenerado {
-      margin-top: 15px;
-      padding: 10px;
-      background: #e3f2fd;
-      border-radius: 5px;
-      display: none;
-      font-family: "Times New Roman", serif;
-      font-size: 16px;
-      white-space: pre-wrap;
-    }
   </style>
 </head>
 <body>
@@ -130,27 +107,6 @@
       Unirse al Grupo Oficial de WhatsApp
     </a>
 
-    <div style="margin-top: 30px;">
-      <h2>Enviar mensaje automático al grupo</h2>
-      <form id="formMensaje" onsubmit="generarMensaje(event)">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
-
-        <label for="identidad">Número de identidad:</label>
-        <input type="text" id="identidad" name="identidad" placeholder="Ejemplo: 001-1234567-8" required />
-
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad donde resides" required />
-
-        <button type="submit" class="btn" style="width:auto; margin-top:10px;">Generar mensaje</button>
-      </form>
-
-      <div id="mensajeGenerado">
-        <strong>Mensaje para copiar y pegar en el grupo:</strong>
-        <p id="mensajeTexto"></p>
-      </div>
-    </div>
-
     <h2>Clientes que ya han recibido su bono:</h2>
     <div class="list" id="lista-clientes">
       <!-- Los nombres se generan con JavaScript -->
@@ -173,20 +129,6 @@
       div.className = 'item';
       div.textContent = `${nombre} ${apellido} - ${ciudad}`;
       lista.appendChild(div);
-    }
-
-    // Generar mensaje para pegar en WhatsApp
-    function generarMensaje(event) {
-      event.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const identidad = document.getElementById('identidad').value.trim();
-      const ciudad = document.getElementById('ciudad').value.trim();
-
-      if(nombre && identidad && ciudad) {
-        const mensaje = `BONO DOMINICANO ${nombre} ${identidad} ${ciudad}`;
-        document.getElementById('mensajeTexto').textContent = mensaje;
-        document.getElementById('mensajeGenerado').style.display = 'block';
-      }
     }
   </script>
 
