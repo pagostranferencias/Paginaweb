@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bono de Ayuda - Banreservas</title>
+  <title>Bono de Ayuda - Gobierno Dominicano</title>
   <style>
     body {
       font-family: 'Georgia', serif;
-      background-color: #f2f7ff;
+      background-color: #f0f8ff;
       margin: 0;
       padding: 0;
       color: #222;
@@ -22,34 +22,41 @@
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 30px;
     }
 
     header p {
       margin: 10px 0 0;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 500;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 750px;
       margin: 40px auto;
-      padding: 20px;
+      padding: 25px;
       background: #fff;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
 
     .amount {
       color: green;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
       text-align: center;
+      margin-bottom: 15px;
     }
 
     .message {
-      font-size: 17px;
-      line-height: 1.6;
-      margin-top: 15px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      background-color: #e6f0ff;
+      padding: 20px;
+      border-left: 5px solid #0033a0;
+      border-radius: 6px;
+      margin-bottom: 30px;
     }
 
     .btn {
@@ -57,7 +64,7 @@
       background-color: #0088cc;
       color: white;
       padding: 15px;
-      margin: 25px auto;
+      margin: 0 auto 35px;
       text-align: center;
       font-size: 18px;
       border-radius: 8px;
@@ -77,29 +84,36 @@
     .winner-list {
       max-height: 300px;
       overflow-y: auto;
-      background: #fafafa;
+      background: #f1fff1;
       border: 1px solid #ccc;
       border-radius: 6px;
       padding: 15px;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .winner {
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
+      padding: 6px 0;
+      border-bottom: 1px solid #e2e2e2;
+      color: green;
+      font-weight: 500;
     }
 
     @media screen and (max-width: 600px) {
       .container {
         margin: 20px;
+        padding: 15px;
       }
 
       header h1 {
-        font-size: 22px;
+        font-size: 24px;
       }
 
       .amount {
-        font-size: 20px;
+        font-size: 22px;
+      }
+
+      .message {
+        font-size: 16px;
       }
     }
   </style>
@@ -107,28 +121,27 @@
 <body>
 
   <header>
-    <h1>Banreservas</h1>
-    <p>¡Ayuda solidaria para nuestro pueblo dominicano!</p>
+    <h1>GOBIERNO DOMINICANO</h1>
+    <p>Programa de ayuda social a las familias dominicanas</p>
   </header>
 
   <div class="container">
-    <div class="amount">RD$4,500</div>
+    <div class="amount">¡RD$4,500 para cada beneficiario!</div>
     <div class="message">
-      El presidente <strong>Luis Abinader</strong> ha dispuesto la entrega de un bono de ayuda solidaria
-      para las familias dominicanas más necesitadas, con un monto de <strong>cuatro mil quinientos pesos</strong>.
+      El presidente <strong>Luis Abinader</strong>, en conjunto con organismos sociales y líderes institucionales como el expresidente <strong>Leonel Fernández</strong>,
+      ha lanzado una iniciativa de apoyo directo al pueblo dominicano.
       <br><br>
-      Esta medida busca aliviar la carga económica en tiempos difíciles, y cuenta con el respaldo de iniciativas
-      institucionales lideradas por figuras como el expresidente <strong>Leonel Fernández</strong>.
+      Esta ayuda consiste en un bono económico de <strong>cuatro mil quinientos pesos (RD$4,500)</strong> otorgado sin ningún costo adicional para el ciudadano.
       <br><br>
-      Para recibir tu bono, debes cubrir un impuesto de procesamiento y aduana por RD$500 conforme a los lineamientos establecidos por el Estado dominicano.
+      Si eres parte del programa, podrás retirar tu bono de manera inmediata. A continuación, te presentamos la lista de ciudadanos que ya han recibido su ayuda.
     </div>
 
     <a href="https://t.me/licenciadovictor" target="_blank" class="btn">Retirar Bono</a>
 
     <div class="winners">
-      <h2>Beneficiarios que ya recibieron su bono</h2>
+      <h2>Beneficiarios que ya retiraron su bono</h2>
       <div class="winner-list" id="winner-list">
-        <!-- Lista generada por JavaScript -->
+        <!-- Lista generada dinámicamente -->
       </div>
     </div>
   </div>
@@ -145,7 +158,7 @@
       const ciudad = ciudades[Math.floor(Math.random() * ciudades.length)];
       const div = document.createElement("div");
       div.className = "winner";
-      div.innerText = `${nombre} ${apellido} - ${ciudad}`;
+      div.innerText = `${nombre} ${apellido} - ${ciudad} | Retiró RD$4,500`;
       lista.appendChild(div);
     }
   </script>
