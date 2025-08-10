@@ -1,167 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bono de Ayuda - Gobierno Dominicano</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cuenta - Joel Enrique Sano (Simulación)</title>
   <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #f0f8ff;
-      margin: 0;
-      padding: 0;
-      color: #222;
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --accent:#0b66ff;
+      --danger:#d9534f;
+      --muted:#6b7280;
+      --shadow: 0 6px 18px rgba(11,102,255,0.08);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-
-    header {
-      background-color: #0033a0;
-      color: #fff;
-      text-align: center;
-      padding: 30px 15px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #eef6ff 0%, var(--bg) 100%);
+      color:#0f1724;
+      padding:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    .wrapper{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:22px;
+      align-items:start;
     }
-
-    header p {
-      margin: 10px 0 0;
-      font-size: 18px;
-      font-weight: 500;
+    .panel{
+      background:var(--card);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(10,20,40,0.03);
     }
-
-    .container {
-      max-width: 750px;
-      margin: 40px auto;
-      padding: 25px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    .account-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
     }
-
-    .amount {
-      color: green;
-      font-size: 26px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 15px;
+    .account-info{
+      display:flex;
+      gap:12px;
+      align-items:center;
     }
-
-    .message {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #333;
-      background-color: #e6f0ff;
-      padding: 20px;
-      border-left: 5px solid #0033a0;
-      border-radius: 6px;
-      margin-bottom: 30px;
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#cfe1ff,#e8f0ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--accent);
+      font-size:20px;
     }
-
-    .btn {
-      display: block;
-      background-color: #0088cc;
-      color: white;
-      padding: 15px;
-      margin: 0 auto 35px;
-      text-align: center;
-      font-size: 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      max-width: 300px;
+    .name h2{margin:0;font-size:18px}
+    .name p{margin:2px 0 0;color:var(--muted);font-size:13px}
+    .balance{text-align:right;}
+    .balance .label{font-size:13px;color:var(--muted)}
+    .balance .amount{font-size:28px;font-weight:700;margin-top:6px;color:#071033}
+    .blocked-badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:linear-gradient(90deg,#fff6f6,#fff);
+      border:1px solid rgba(217,83,79,0.12);
+      color:var(--danger);
+      padding:10px 12px;
+      border-radius:10px;
+      margin-top:14px;
+      font-weight:600;
     }
-
-    .winners {
-      margin-top: 30px;
+    .blocked-badge small{display:block;font-weight:500;color:rgba(217,83,79,0.95);font-size:13px}
+    .movements-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:16px;
+      gap:8px;
     }
-
-    .winners h2 {
-      text-align: center;
-      font-size: 20px;
+    .list{
+      margin-top:12px;
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(10,20,40,0.04);
     }
-
-    .winner-list {
-      max-height: 300px;
-      overflow-y: auto;
-      background: #f1fff1;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 15px;
-      font-size: 15px;
+    .item{
+      display:flex;
+      justify-content:space-between;
+      padding:12px 14px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-bottom:1px solid rgba(10,20,40,0.03);
     }
-
-    .winner {
-      padding: 6px 0;
-      border-bottom: 1px solid #e2e2e2;
-      color: green;
-      font-weight: 500;
-    }
-
-    @media screen and (max-width: 600px) {
-      .container {
-        margin: 20px;
-        padding: 15px;
-      }
-
-      header h1 {
-        font-size: 24px;
-      }
-
-      .amount {
-        font-size: 22px;
-      }
-
-      .message {
-        font-size: 16px;
-      }
-    }
+    .item:last-child{border-bottom:none}
+    .item .left{display:flex;flex-direction:column}
+    .item .left .title{font-weight:600}
+    .item .left .date{font-size:13px;color:var(--muted);margin-top:4px}
+    .item .amount{font-weight:700;align-self:center}
+    .credit{color:green}
+    .debit{color:var(--danger)}
+    .side{display:flex;flex-direction:column;gap:16px;}
+    .summary{padding:16px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);}
+    .summary h3{margin:0 0 8px 0}
+    .summary .row{display:flex;justify-content:space-between;color:var(--muted);margin-top:8px}
+    .notice{padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff7e6,#fff);border:1px solid rgba(255,193,7,0.12);}
+    .sim-label{display:inline-block;margin-top:12px;padding:6px 8px;font-size:12px;background:#0008;color:#fff;border-radius:6px;font-weight:700;}
+    footer{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+    @media (max-width:880px){.wrapper{grid-template-columns:1fr; padding:12px}}
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>GOBIERNO DOMINICANO</h1>
-    <p>Programa de ayuda social a las familias dominicanas</p>
-  </header>
-
-  <div class="container">
-    <div class="amount">¡RD$4,500 para cada beneficiario!</div>
-    <div class="message">
-      El presidente <strong>Luis Abinader</strong>, en conjunto con organismos sociales y líderes institucionales como el expresidente <strong>Leonel Fernández</strong>,
-      ha lanzado una iniciativa de apoyo directo al pueblo dominicano.
-      <br><br>
-      Esta ayuda consiste en un bono económico de <strong>cuatro mil quinientos pesos (RD$4,500)</strong> otorgado sin ningún costo adicional para el ciudadano.
-      <br><br>
-      Si eres parte del programa, podrás retirar tu bono de manera inmediata. A continuación, te presentamos la lista de ciudadanos que ya han recibido su ayuda.
+  <div class="wrapper">
+    <div class="panel">
+      <div class="account-header">
+        <div class="account-info">
+          <div class="avatar">JS</div>
+          <div class="name">
+            <h2>Joel Enrique Sano</h2>
+            <p>Cuenta corriente • ID: <strong>XXX-XXXX</strong></p>
+          </div>
+        </div>
+        <div class="balance">
+          <div class="label">Saldo disponible</div>
+          <div class="amount">RD$ 95,000.00</div>
+        </div>
+      </div>
+      <div class="blocked-badge">
+        <small>CUENTA BLOQUEADA</small>
+        <div style="font-size:13px;color:#8b2b2b">Acceso restringido. Contacte soporte.</div>
+      </div>
+      <div class="movements-title">
+        <h3>Últimos movimientos</h3>
+        <span class="sim-label">SIMULACIÓN</span>
+      </div>
+      <div class="list">
+        <div class="item">
+          <div class="left">
+            <div class="title">Depósito efectivo</div>
+            <div class="date">10 ago 2025 • 10:15</div>
+          </div>
+          <div class="amount credit">RD$ 110,000.00</div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <div class="title">Transferencia entrante</div>
+            <div class="date">08 ago 2025 • 09:45</div>
+          </div>
+          <div class="amount credit">RD$ 20,000.00</div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <div class="title">Pago recibido</div>
+            <div class="date">05 ago 2025 • 15:20</div>
+          </div>
+          <div class="amount credit">RD$ 40,000.00</div>
+        </div>
+        <div class="item">
+          <div class="left">
+            <div class="title">Gasto — Pistola 380 cargador peine 32</div>
+            <div class="date">01 ago 2025 • 12:10</div>
+          </div>
+          <div class="amount debit">-RD$ 75,000.00</div>
+        </div>
+      </div>
+      <footer>
+        <small>Simulación para fines de prueba. No es una cuenta real.</small>
+      </footer>
     </div>
-
-    <a href="https://t.me/licenciadovictor" target="_blank" class="btn">Retirar Bono</a>
-
-    <div class="winners">
-      <h2>Beneficiarios que ya retiraron su bono</h2>
-      <div class="winner-list" id="winner-list">
-        <!-- Lista generada dinámicamente -->
+    <div class="side">
+      <div class="panel summary">
+        <h3>Resumen rápido</h3>
+        <div class="row"><span>Nombre</span><strong>Joel E. Sano</strong></div>
+        <div class="row"><span>Tipo de cuenta</span><span>Corriente</span></div>
+        <div class="row"><span>Estado</span><span style="color:var(--danger);font-weight:700">BLOQUEADA</span></div>
+        <div class="row"><span>Último movimiento</span><span>-RD$ 75,000.00</span></div>
+        <div class="row"><span>Saldo estimado</span><span>RD$ 95,000.00</span></div>
+      </div>
+      <div class="panel notice">
+        <h4>Aviso importante</h4>
+        <p>Esta página es solo una simulación para pruebas, sin conexión real a un banco.</p>
       </div>
     </div>
   </div>
-
-  <script>
-    const nombres = ["Carlos", "Ana", "Luis", "María", "José", "Elena", "Pedro", "Lucía", "Ramón", "Carmen"];
-    const apellidos = ["Pérez", "Santos", "Ramírez", "Gómez", "Rodríguez", "Fernández", "Morales", "López"];
-    const ciudades = ["Santo Domingo", "Santiago", "La Vega", "San Cristóbal", "San Pedro", "Higüey", "Moca", "Baní", "Azua", "Bonao"];
-    const lista = document.getElementById("winner-list");
-
-    for (let i = 0; i < 100; i++) {
-      const nombre = nombres[Math.floor(Math.random() * nombres.length)];
-      const apellido = apellidos[Math.floor(Math.random() * apellidos.length)];
-      const ciudad = ciudades[Math.floor(Math.random() * ciudades.length)];
-      const div = document.createElement("div");
-      div.className = "winner";
-      div.innerText = `${nombre} ${apellido} - ${ciudad} | Retiró RD$4,500`;
-      lista.appendChild(div);
-    }
-  </script>
-
 </body>
 </html>
